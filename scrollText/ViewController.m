@@ -27,16 +27,14 @@ NSTimer *scrollingTimer;
 
     NSLog(@"%f %f",self.mopassanTextView.contentSize.width , self.mopassanTextView.contentSize.height);
     
-    if (scrollingTimer == nil)
-    {
+    if (scrollingTimer == nil) {
         // speed of scrolling
         scrollingTimer = [NSTimer scheduledTimerWithTimeInterval:(0.03)
                                                           target:self selector:@selector(autoscrollTimerFired) userInfo:nil repeats:YES];
     }
 }
 
-- (void) autoscrollTimerFired
-{
+- (void) autoscrollTimerFired {
     CGPoint scrollPoint = self.mopassanTextView.contentOffset;
     NSLog(@"%.2f %.2f",scrollPoint.x,scrollPoint.y);
     if (scrollPoint.y == self.mopassanTextView.contentSize.height - self.mopassanTextView.bounds.size.height) // position to stop scrolling
